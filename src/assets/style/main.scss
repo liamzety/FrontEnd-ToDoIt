@@ -1,0 +1,17 @@
+// BASICS
+@import './basics/variables';
+@import './basics/helpers';
+@import './basics/base';
+@import './basics/typography';
+@import './basics/animations';
+// VIEWS
+@import './views/home';
+
+// COMPONENTS
+@import './components/note-app';
+@import './components/notes-list';
+@import './components/note-add';
+@import './components/note-preview';
+
+//MODALS
+// @import './modals/screen-modal';
