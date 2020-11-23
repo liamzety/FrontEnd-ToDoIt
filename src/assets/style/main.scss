@@ -6,12 +6,14 @@
 @import './basics/animations';
 // VIEWS
 @import './views/home';
+@import './views/note-app';
 
 // COMPONENTS
-@import './components/note-app';
 @import './components/notes-list';
 @import './components/note-add';
 @import './components/note-preview';
+@import './components/sidebar';
+@import './components/topbar';
 
 //MODALS
 // @import './modals/screen-modal';

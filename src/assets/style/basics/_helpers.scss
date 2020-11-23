@@ -2,7 +2,15 @@
   display: flex;
 }
 
-.column {
+.w100 {
+  width: 100%;
+}
+
+.h100 {
+  height: 100%;
+}
+
+.col {
   flex-direction: column;
 }
 

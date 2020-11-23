@@ -1,5 +1,5 @@
 import { Home } from './views/Home'
-import { Notes } from './views/Notes'
+import { NoteApp } from './views/NoteApp'
 import { UserSign } from './views/UserSign'
 
 export default [
@@ -13,6 +13,6 @@ export default [
     },
     {
         path: '/notes',
-        component: Notes
+        component: NoteApp
     }
 ]

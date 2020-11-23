@@ -7,7 +7,6 @@ export const noteService = {
 }
 
 async function add(user) {
-    console.log('adding',)
     const note = {
         title: "Untitled",
         body: "Write your ideas here!"
@@ -18,7 +17,7 @@ async function remove(noteId, user) {
     const updatedUser = await httpService.delete(`note/${noteId}`, { user })
     return updatedUser
 }
-function update(note, user) {
-    httpService.put(`note/${note._id}`, { note, user })
+async function update(note, user) {
+    return await httpService.put(`note/${note._id}`, { note, user })
 }
 

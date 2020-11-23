@@ -9,7 +9,6 @@ export function userReducer(state = initialState, action) {
     switch (action.type) {
         //USER
         case 'LOG_USER':
-            console.log('logging user',)
             sessionStorage.setItem('user', JSON.stringify(action.user))
             return {
                 ...state,
@@ -22,30 +21,14 @@ export function userReducer(state = initialState, action) {
             }
         //NOTE 
         case 'SAVE_NOTE':
-            const noteIdx = state.loggedUser.notes.findIndex(note => note._id === action.note._id)
-            //NEW NOTE
-            if (noteIdx === -1) return ({
+            sessionStorage.setItem('user', JSON.stringify(action.updatedUser))
+            return ({
                 ...state,
-                loggedUser: {
-                    ...state.loggedUser,
-                    notes: [
-                        action.note, ...state.loggedUser.notes
-                    ]
-                }
+                loggedUser: action.updatedUser
             })
-            //UPDATE NOTE
-            else {
-                const notes = [...state.loggedUser.notes]
-                notes.splice(noteIdx, 1, action.note)
-                return ({
-                    ...state,
-                    loggedUser: {
-                        ...state.loggedUser,
-                        notes
-                    }
-                })
-            }
+
         case 'REMOVE_NOTE':
+            sessionStorage.setItem('user', JSON.stringify(action.updatedUser))
             return ({
                 ...state,
                 loggedUser: action.updatedUser,

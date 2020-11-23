@@ -1,0 +1,15 @@
+.note-app {
+  height: 100vh;
+
+  .col-left {
+    width: 200px;
+  }
+
+  .col-right {
+    flex-grow: 1;
+  }
+
+  .editor {
+    resize: none;
+  }
+}
