@@ -2,8 +2,15 @@
   "short_name": "ToDoIt!",
   "name": "ToDoIt!",
   "start_url": ".",
-  "scope": "/",
   "display": "standalone",
   "theme_color": "#00adb5",
-  "background_color": "#00adb5"
+  "background_color": "#00adb5",
+  "icons": [
+    {
+      "src": "166x166.png",
+      "sizes": "166x166",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
 }
