@@ -1,8 +1,9 @@
 {
-  "short_name": "ToDoIt",
-  "name": "The better version of writing notes!",
+  "short_name": "ToDoIt!",
+  "name": "ToDoIt!",
   "start_url": ".",
+  "scope": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#00adb5",
+  "background_color": "#00adb5"
 }

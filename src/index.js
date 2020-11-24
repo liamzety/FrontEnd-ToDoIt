@@ -4,6 +4,7 @@ import App from './App.jsx';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
 import './assets/style/main.scss';
+import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,3 +15,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+serviceWorker.unregister();
