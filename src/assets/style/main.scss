@@ -5,7 +5,8 @@
 @import './basics/typography';
 @import './basics/animations';
 // VIEWS
-@import './views/home';
+@import './views/user-login';
+@import './views/user-sign';
 @import './views/note-app';
 
 // COMPONENTS
@@ -14,6 +15,7 @@
 @import './components/note-preview';
 @import './components/sidebar';
 @import './components/topbar';
+@import './components/log-sign-form';
 
 //MODALS
 // @import './modals/screen-modal';

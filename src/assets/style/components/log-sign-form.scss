@@ -1,0 +1,51 @@
+.log-sign-form {
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: $mainBlue;
+    box-shadow: $mainShadow;
+
+    .form-container {
+        max-width: 400px;
+    }
+
+    input {
+        width: 100%;
+        background-color: transparent;
+        border: 2px solid $secGrey;
+        border-radius: 5px;
+        padding: 8px;
+        font-size: 1.2rem;
+        color: $secGrey;
+        margin-bottom: 15px;
+
+        &:last-of-type {
+            margin-bottom: 50px;
+        }
+
+        &::placeholder {
+            color: $secGrey;
+            opacity: .5;
+        }
+    }
+
+    button {
+        width: 50%;
+        max-width: 300px;
+        font-weight: 700;
+        background-color: $mainBlue;
+        border: 2px solid $secGrey;
+        border-radius: 5px;
+        padding: 8px;
+        font-size: 1.2rem;
+        color: $secGrey;
+        margin-bottom: 15px;
+
+        &:hover {
+            background-color: $mainWhite;
+            border-color: $mainWhite;
+            color: $secGrey;
+        }
+
+    }
+}

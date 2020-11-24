@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { UserSign } from '../views/UserSign'
 
 export function UserLog({ onLogin }) {
     const [userDetails, setUserDetails] = useState(null)
@@ -12,16 +11,23 @@ export function UserLog({ onLogin }) {
         })
     }
     return (
-        <form className="user-login"
+        <form className='log-sign-form flex col wrap justify-center'
             onSubmit={ev => {
                 ev.preventDefault()
                 onLogin(userDetails)
 
             }}>
-            <input onChange={onLogUserInp} name="username" type="text" placeholder="username" />
-            <input onChange={onLogUserInp} name="password" type="text" placeholder="password" />
-            <button>Login</button>
-            <p>Dont have an account? <NavLink to='/sign'>Sign in here </NavLink></p>
+            <div className="form-container">
+                <input onChange={onLogUserInp} name="username" type="text" placeholder="username" />
+                <input onChange={onLogUserInp} name="password" type="text" placeholder="password" />
+                <div className="flex align-center col">
+                    <button >Login</button>
+                    <div className="flex col text-center">
+                        <p>Dont have an account?</p>
+                        <NavLink to='/sign'>Sign in here </NavLink>
+                    </div>
+                </div>
+            </div>
         </form>
     )
 }

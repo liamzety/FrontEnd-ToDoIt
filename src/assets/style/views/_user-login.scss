@@ -1,0 +1,44 @@
+.user-login {
+    min-height: 100vh;
+
+    .col-left {
+        min-height: 100vh;
+        width: 350px;
+        margin-right: -5px;
+        z-index: 1;
+        display: flex;
+    }
+
+    .col-right {
+        min-height: 100vh;
+        width: calc(100vw - 350px);
+        background: url(../../img/log-bg.jpeg) no-repeat right;
+        background-size: cover;
+
+        .col-right-wrapper {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba($mainBlue, 0.25);
+        }
+    }
+
+    @media (max-width:800px) {
+        .log-sign-form {
+            align-items: center;
+            min-height: 50vh
+        }
+
+        .col-left {
+            position: absolute;
+            width: 100vw;
+            min-height: 50vh;
+            margin-right: 0;
+        }
+
+        .col-right {
+            width: 100vw;
+        }
+    }
+}

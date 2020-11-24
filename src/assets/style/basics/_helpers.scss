@@ -6,6 +6,10 @@
   width: 100%;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .h100 {
   height: 100%;
 }
@@ -20,6 +24,10 @@
 
 .wrap {
   flex-wrap: wrap;
+}
+
+.wrap-rev {
+  flex-wrap: wrap-reverse;
 }
 
 .align-center {

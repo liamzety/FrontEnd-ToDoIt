@@ -8,13 +8,18 @@ import { useState } from 'react';
 
 export function NoteApp({ history }) {
   const dispatch = useDispatch();
+  //GLOBAL STATE
   const { loggedUser } = useSelector((state) => state.userReducer);
+  //LOCAL STATE
   const [defaultNote, setDefaultNote] = useState(null)
   const [currNote, setCurrNote] = useState(null)
   const [isUnsaved, setisUnsaved] = useState(false)
 
+
   //If user is not logged then move to home
   useEffect(() => {
+    console.log('if (!loggedUser) history.push("/")',)
+
     if (!loggedUser) history.push("/")
     else {
       dispatch(loadUser(loggedUser._id))
@@ -37,9 +42,9 @@ export function NoteApp({ history }) {
 
   //On logged user note length change AKA remove,add - reload and set notes.
   useEffect(() => {
-    console.log('updated loggeduser', loggedUser.notes)
+    if (!loggedUser) return
     _setNotes(loggedUser.notes[loggedUser.notes.length - 1] || null)
-  }, [loggedUser.notes.length])
+  }, [loggedUser && loggedUser.notes.length])
 
   //if window key Ctrl+S then save curr note
   function onWindowKey(ev) {
@@ -64,6 +69,7 @@ export function NoteApp({ history }) {
   //--------------------------------
   async function onLogOut() {
     await dispatch(logout())
+    console.log('onLogOut() history.push("/")',)
     history.push("/")
   }
   function onNoteSelect(note) {

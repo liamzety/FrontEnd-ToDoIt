@@ -11,7 +11,8 @@ html {
 }
 
 body {
-  color: #bbbb;
+  color: $secGrey;
+  background-image: linear-gradient(100deg, $secGrey 0%, $mainGrey 100%);
 }
 
 ul {
@@ -36,11 +37,7 @@ a {
 
 button {
   cursor: pointer;
-  transition: 0.3s;
-
-  &:hover {
-    filter: brightness(75%);
-  }
+  transition: 0.2s;
 }
 
 //tooltip

@@ -1,11 +1,11 @@
-import { Home } from './views/Home'
+import { UserLogin } from './views/UserLogin'
 import { NoteApp } from './views/NoteApp'
 import { UserSign } from './views/UserSign'
 
 export default [
     {
         path: '/',
-        component: Home
+        component: UserLogin
     },
     {
         path: '/sign',
