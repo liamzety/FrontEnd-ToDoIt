@@ -1,0 +1,22 @@
+.ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-focused {
+    border-color: $mainBlue;
+}
+
+.ck.ck-toolbar.ck-toolbar_grouping>.ck-toolbar__items {
+    flex-wrap: wrap;
+}
+
+.ck-editor {
+    height: 100%;
+    width: calc(100vw - 100px);
+
+    background-color: $mainGrey;
+    color: $mainGrey;
+
+    .ck-content {
+        padding: 10px 25px;
+        height: 80vh;
+    }
+
+
+}

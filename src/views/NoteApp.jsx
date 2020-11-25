@@ -16,11 +16,8 @@ export function NoteApp({ history }) {
   const [currNote, setCurrNote] = useState(null)
   const [isUnsaved, setisUnsaved] = useState(false)
 
-
   //If user is not logged then move to home
   useEffect(() => {
-    console.log('if (!loggedUser) history.push("/")',)
-
     if (!loggedUser) history.push("/")
     else {
       dispatch(loadUser(loggedUser._id))
@@ -61,6 +58,7 @@ export function NoteApp({ history }) {
   }
   function onRemoveNote() {
     dispatch(removeNote(currNote._id, loggedUser))
+    _setNotes(loggedUser.notes[loggedUser.notes.length - 1] || null)
   }
   function onUpdateNote() {
     dispatch(updateNote(currNote, loggedUser))
@@ -98,7 +96,7 @@ export function NoteApp({ history }) {
           notes={loggedUser.notes}
           onNoteSelect={onNoteSelect}
           onAddNote={onAddNote}
-
+          currNote={currNote}
         />
       </div>
 
@@ -122,7 +120,9 @@ export function NoteApp({ history }) {
             }}
           />
           :
-          <h1>No notes left!</h1>
+          <div className="no-notes flex align-center justify-center">
+            <h1>No notes found!</h1>
+          </div>
         }
 
       </div>

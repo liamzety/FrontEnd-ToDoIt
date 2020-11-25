@@ -1,31 +1,23 @@
 .note-app {
   height: 100vh;
   color: $mainWhite;
+  overflow: hidden;
 
   .col-left {
     width: 100px;
   }
 
   .col-right {
-    flex-grow: 1;
-  }
-
-  .ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-focused {
-    border-color: $mainBlue;
-  }
-
-  //EDITOR
-  .ck-editor {
-    height: 100%;
     width: calc(100vw - 100px);
-
     background-color: $mainGrey;
-    color: $mainGrey;
-
-    .ck-content {
-      padding: 10px 25px;
-      height: 80vh;
-    }
-
   }
+
+  .no-notes {
+    padding: 30px;
+    height: 85vh;
+    background-color: $mainWhite;
+    color: $mainBlue;
+    font-size: 4vw;
+  }
+
 }

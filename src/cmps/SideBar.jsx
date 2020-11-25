@@ -1,7 +1,7 @@
 import React from 'react'
 import { NotesList } from './NotesList'
 
-export function SideBar({ onRemoveNote, notes, onNoteSelect, onAddNote }) {
+export function SideBar({ onRemoveNote, notes, onNoteSelect, onAddNote, currNote }) {
     return (
         <div className="sidebar flex align-center col w100">
             <div className="placeholder">
@@ -9,6 +9,7 @@ export function SideBar({ onRemoveNote, notes, onNoteSelect, onAddNote }) {
             </div>
             <button onClick={onAddNote}>add</button>
             <NotesList
+                currNote={currNote}
                 notes={notes}
                 onNoteSelect={onNoteSelect}
                 onRemoveNote={onRemoveNote} />
