@@ -26,6 +26,17 @@ a {
   transition: 0.2s;
 }
 
+svg {
+  color: $mainBlue;
+  cursor: pointer;
+  font-size: 2rem;
+  transition: .2s;
+
+  &:hover {
+    color: scale-color($mainBlue, $lightness: 20%)
+  }
+}
+
 button {
   cursor: pointer;
   transition: 0.2s;
@@ -64,6 +75,7 @@ button {
 /* width */
 ::-webkit-scrollbar {
   width: 5px;
+  height: 5px;
 }
 
 /* Track */

@@ -1,5 +1,6 @@
 import React from 'react'
 import { NotesList } from './NotesList'
+import { AiOutlineFolderAdd } from 'react-icons/ai'
 
 export function SideBar({ onRemoveNote, notes, onNoteSelect, onAddNote, currNote }) {
     return (
@@ -7,7 +8,7 @@ export function SideBar({ onRemoveNote, notes, onNoteSelect, onAddNote, currNote
             <div className="placeholder">
 
             </div>
-            <button onClick={onAddNote}>add</button>
+            <AiOutlineFolderAdd onClick={onAddNote} />
             <NotesList
                 currNote={currNote}
                 notes={notes}

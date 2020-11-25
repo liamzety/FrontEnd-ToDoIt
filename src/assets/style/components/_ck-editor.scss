@@ -2,8 +2,29 @@
     border-color: $mainBlue;
 }
 
-.ck.ck-toolbar.ck-toolbar_grouping>.ck-toolbar__items {
-    flex-wrap: wrap;
+.ck.ck-toolbar-dropdown .ck.ck-toolbar .ck.ck-toolbar__items {
+    @media (max-width:480px) {
+        flex-wrap: wrap;
+    }
+}
+
+.ck.ck-editor__top .ck-sticky-panel .ck-toolbar {
+    border: none;
+}
+
+.ck.ck-toolbar {
+    background-color: $secGrey;
+}
+
+.ck.ck-button:not(.ck-disabled):hover,
+a.ck.ck-button:not(.ck-disabled):hover {
+    background: $mainBlue;
+
+}
+
+.ck .ck-button {
+    color: $mainWhite;
+    cursor: pointer;
 }
 
 .ck-editor {
@@ -15,7 +36,7 @@
 
     .ck-content {
         padding: 10px 25px;
-        height: 80vh;
+        height: calc(80vh - 50px);
     }
 
 

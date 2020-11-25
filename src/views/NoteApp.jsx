@@ -7,6 +7,8 @@ import { TopBar } from '../cmps/TopBar';
 import { useState } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
+
 export function NoteApp({ history }) {
   const dispatch = useDispatch();
   //GLOBAL STATE
@@ -23,6 +25,7 @@ export function NoteApp({ history }) {
       dispatch(loadUser(loggedUser._id))
       _setNotes(loggedUser.notes[loggedUser.notes.length - 1])
     }
+
   }, [])
 
   //Detect changes, if changes were made show unsaved icon
@@ -86,6 +89,9 @@ export function NoteApp({ history }) {
     setDefaultNote(note)
     setCurrNote(note)
   }
+
+
+
   if (!loggedUser) {
     return <h1>Loading...</h1>
   }
@@ -114,6 +120,15 @@ export function NoteApp({ history }) {
           <CKEditor
             editor={ClassicEditor}
             data={currNote.body}
+            config={{
+              removePlugins: ['MediaEmbed', 'ImageUpload'],
+              placeholder: 'Write your ideas here!',
+              uiColor: '#66AB16'
+            }}
+
+            onReady={editor => {
+              console.log('Editor is ready to use!', Array.from(editor.ui.componentFactory.editor.commands));
+            }}
             onChange={(event, editor) => {
               const content = editor.getData();
               onNoteChange('body', content)
