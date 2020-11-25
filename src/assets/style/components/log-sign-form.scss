@@ -2,8 +2,16 @@
     width: 100%;
     min-height: 100vh;
     padding: 20px;
-    background-color: $mainBlue;
-    box-shadow: $mainShadow;
+    background-color: $mainGrey;
+    color: rgba($mainWhite, 0.6);
+
+    a {
+        color: $mainBlue;
+
+        &:hover {
+            color: scale-color($mainBlue, $lightness: 50%)
+        }
+    }
 
     .form-container {
         max-width: 400px;
@@ -12,11 +20,11 @@
     input {
         width: 100%;
         background-color: transparent;
-        border: 2px solid $secGrey;
+        border: 2px solid $mainBlue;
         border-radius: 5px;
         padding: 8px;
         font-size: 1.2rem;
-        color: $secGrey;
+        color: $mainBlue;
         margin-bottom: 15px;
 
         &:last-of-type {
@@ -24,7 +32,7 @@
         }
 
         &::placeholder {
-            color: $secGrey;
+            color: rgba($mainBlue, 0.6);
             opacity: .5;
         }
     }
@@ -34,16 +42,15 @@
         max-width: 300px;
         font-weight: 700;
         background-color: $mainBlue;
-        border: 2px solid $secGrey;
+        border: none;
         border-radius: 5px;
         padding: 8px;
         font-size: 1.2rem;
-        color: $secGrey;
+        color: $mainGrey;
         margin-bottom: 15px;
 
         &:hover {
             background-color: $mainWhite;
-            border-color: $mainWhite;
             color: $secGrey;
         }
 

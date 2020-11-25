@@ -1,1 +1,18 @@
-.notes-list {}
+.notes-list {
+    max-height: 80vh;
+    max-width: 92px;
+    overflow-y: overlay;
+    width: 100%;
+    padding-left: 15px;
+
+    li {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    * {
+        margin-bottom: 15px;
+
+    }
+}

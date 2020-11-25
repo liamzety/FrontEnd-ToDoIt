@@ -1,5 +1,14 @@
 .topbar {
     background-color: $mainGrey;
+    height: 10vh;
+
+    .title {
+        svg {
+            font-size: 10px;
+            margin-right: 10px;
+            color: $mainBlue;
+        }
+    }
 
     .actions {
         margin-left: auto;

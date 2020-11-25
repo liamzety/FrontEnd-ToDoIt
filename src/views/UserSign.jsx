@@ -24,7 +24,7 @@ export function UserSign({ history }) {
     }
     return (
         <div className="user-sign flex justify-center align-center">
-            <div className="col-left">
+            <div className="col-left ">
             </div>
             <div className="col-right">
                 <form className="log-sign-form flex col wrap justify-center"

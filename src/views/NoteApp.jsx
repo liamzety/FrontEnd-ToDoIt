@@ -5,7 +5,8 @@ import { loadUser, logout } from '../store/actions/userActions';
 import { SideBar } from '../cmps/SideBar';
 import { TopBar } from '../cmps/TopBar';
 import { useState } from 'react';
-
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 export function NoteApp({ history }) {
   const dispatch = useDispatch();
   //GLOBAL STATE
@@ -75,13 +76,11 @@ export function NoteApp({ history }) {
   function onNoteSelect(note) {
     _setNotes(note)
   }
-  function onNoteChange(ev) {
-    const target = ev.target
+  function onNoteChange(type, content) {
     setCurrNote(prevState => {
       return {
         ...prevState,
-        [target.name]: target.value
-
+        [type]: content
       }
     })
   }
@@ -105,20 +104,23 @@ export function NoteApp({ history }) {
 
       <div className="col-right col flex ">
         <TopBar
+          onNoteChange={onNoteChange}
           isUnsaved={isUnsaved}
           currNote={currNote}
           user={loggedUser}
           onUpdateNote={onUpdateNote}
           onRemoveNote={onRemoveNote}
           onLogOut={onLogOut} />
-        {currNote && loggedUser.notes.length !== 0 ?
-          <textarea
-            name="body"
-            value={currNote.body}
-            onChange={onNoteChange}
-            className="editor h100"
-          ></textarea>
 
+        {currNote && loggedUser.notes.length !== 0 ?
+          <CKEditor
+            editor={ClassicEditor}
+            data={currNote.body}
+            onChange={(event, editor) => {
+              const content = editor.getData();
+              onNoteChange('body', content)
+            }}
+          />
           :
           <h1>No notes left!</h1>
         }

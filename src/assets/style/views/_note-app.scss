@@ -1,15 +1,31 @@
 .note-app {
   height: 100vh;
+  color: $mainWhite;
 
   .col-left {
-    width: 200px;
+    width: 100px;
   }
 
   .col-right {
     flex-grow: 1;
   }
 
-  .editor {
-    resize: none;
+  .ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-focused {
+    border-color: $mainBlue;
+  }
+
+  //EDITOR
+  .ck-editor {
+    height: 100%;
+    width: calc(100vw - 100px);
+
+    background-color: $mainGrey;
+    color: $mainGrey;
+
+    .ck-content {
+      padding: 10px 25px;
+      height: 80vh;
+    }
+
   }
 }
