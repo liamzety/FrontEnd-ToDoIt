@@ -3,8 +3,8 @@
   "name": "ScribePad!",
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#00adb5",
-  "background_color": "#00adb5",
+  "theme_color": "#262D31",
+  "background_color": "#262D31",
   "icons": [
     {
       "src": "72x72.png",
