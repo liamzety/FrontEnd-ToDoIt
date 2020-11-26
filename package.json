@@ -23,6 +23,7 @@
     "cookie-parser": "^1.4.5",
     "cross-env": "^7.0.2",
     "electron-is-dev": "^1.2.0",
+    "electron-builder": "^22.9.1",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "mongodb": "^3.6.1",
