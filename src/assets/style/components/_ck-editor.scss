@@ -1,52 +1,52 @@
 .ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-focused {
-    border: none;
+    border: none !important;
 }
 
 .ck.ck-editor__editable:not(.ck-editor__nested-editable) {
-    border: none;
+    border: none !important;
 }
 
 .ck.ck-toolbar-dropdown .ck.ck-toolbar .ck.ck-toolbar__items {
     @media (max-width:480px) {
-        flex-wrap: wrap;
+        flex-wrap: wrap !important;
     }
 }
 
 .ck.ck-editor__top .ck-sticky-panel .ck-toolbar {
-    border: none;
+    border: none !important;
 }
 
 .ck.ck-toolbar {
-    background-color: $mainGrey;
+    background-color: $mainGrey !important;
 }
 
 .ck.ck-button:not(.ck-disabled):hover,
 a.ck.ck-button:not(.ck-disabled):hover {
-    background: $mainBlue;
-    color: $mainWhite;
+    background: $mainBlue !important;
+    color: $mainWhite !important;
 }
 
 .ck .ck-button {
-    color: $mainWhite;
-    cursor: pointer;
-    color: $thirdGrey;
+    color: $mainWhite !important;
+    cursor: pointer !important;
+    color: $thirdGrey !important;
 }
 
 .ck.ck-editor__main>.ck-editor__editable {
-    background-color: $mainGrey;
-    color: $mainWhite;
+    background-color: $mainGrey !important;
+    color: $mainWhite !important;
 }
 
 .ck-editor {
-    width: calc(100vw - 100px);
-    border: 1px solid $mainWhite;
-    background-color: $mainGrey;
-    color: $mainGrey;
+    width: calc(100vw - 100px) !important;
+    border: 1px solid $mainWhite !important;
+    background-color: $mainGrey !important;
+    color: $mainGrey !important;
 
     .ck-content {
-        padding: 10px 25px;
-        height: calc(100vh - 150px);
-        border: 1px solid transparent;
+        padding: 10px 25px !important;
+        height: calc(100vh - 150px) !important;
+        border: 1px solid transparent !important;
 
     }
 
