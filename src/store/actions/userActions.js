@@ -16,8 +16,7 @@ export function login(user) {
                 return user
             })
             .catch(({ msg }) => {
-                console.log('msg:', msg)
-                dispatch({ type: 'SET_MSG', msg })
+                dispatch({ type: 'SET_MSG', msg: msg || 'Unexpected error, try again later.' })
                 setTimeout(() => {
                     dispatch({ type: 'RESET_MSG' })
                 }, 3000);
@@ -34,8 +33,6 @@ export function signup(user) {
                 return user
             })
             .catch(({ msg }) => {
-                console.log('msg:', msg)
-
                 dispatch({ type: 'SET_MSG', msg })
                 setTimeout(() => {
                     dispatch({ type: 'RESET_MSG' })

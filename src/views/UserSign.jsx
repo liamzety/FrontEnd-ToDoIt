@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { signup } from '../store/actions/userActions';
 import loader from '../assets/img/loader.gif';
 import { ImWarning } from 'react-icons/im';
+import logoMain from '../assets/img/logo-main-light.png'
 
 export function UserSign({ history }) {
     const [isLoadingModal, setIsLoadingModal] = useState(false)
@@ -48,6 +49,11 @@ export function UserSign({ history }) {
                         onSignup(userToAdd)
 
                     }}>
+                    <img src={logoMain} alt="logo" />
+                    <h1>Document your ideas</h1>
+                    <h1>and store all the concepts your earn each day</h1>
+                    <h1>into one place!</h1>
+
                     <div className="form-container">
                         <input onChange={onAddTempInp} name="username" type="text" placeholder="username" required />
                         <input onChange={onAddTempInp} name="password" type="text" placeholder="password" required />

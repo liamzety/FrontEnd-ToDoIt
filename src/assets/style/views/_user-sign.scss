@@ -54,7 +54,23 @@
 
             .log-sign-form {
                 align-items: center;
-                min-height: 80vh
+                min-height: 80vh;
+                text-align: center;
+
+                .form-container {
+                    align-items: center;
+
+                }
+            }
+
+            @media (max-width:400px) {
+                .form-container {
+                    align-items: center;
+
+                    div {
+                        justify-content: center;
+                    }
+                }
             }
         }
 

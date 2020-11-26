@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import logoMain from '../assets/img/logo-main-light.png'
 
 export function UserLog({ onLogin, isLoadingModal }) {
     const [userDetails, setUserDetails] = useState(null)
@@ -17,6 +18,10 @@ export function UserLog({ onLogin, isLoadingModal }) {
                 onLogin(userDetails)
 
             }}>
+            <img src={logoMain} alt="logo" />
+            <h1>Document your ideas</h1>
+            <h1>and store all the concepts your earn each day</h1>
+            <h1>into one place!</h1>
             <div className="form-container">
                 <input onChange={onLogUserInp} name="username" type="text" placeholder="username" required />
                 <input onChange={onLogUserInp} name="password" type="text" placeholder="password" required />
