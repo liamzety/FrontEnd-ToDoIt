@@ -1,6 +1,6 @@
 {
-  "short_name": "ToDoIt!",
-  "name": "ToDoIt!",
+  "short_name": "ScribePad!",
+  "name": "ScribePad!",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#00adb5",

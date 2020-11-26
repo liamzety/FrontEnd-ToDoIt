@@ -125,10 +125,6 @@ export function NoteApp({ history }) {
               placeholder: 'Write your ideas here!',
               uiColor: '#66AB16'
             }}
-
-            onReady={editor => {
-              console.log('Editor is ready to use!', Array.from(editor.ui.componentFactory.editor.commands));
-            }}
             onChange={(event, editor) => {
               const content = editor.getData();
               onNoteChange('body', content)

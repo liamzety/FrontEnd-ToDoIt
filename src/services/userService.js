@@ -32,7 +32,6 @@ async function login(userCred) {
     }
 }
 async function signup(userCred) {
-    console.log('signup:', userCred)
     const user = {
         notes: [],
         ...userCred
