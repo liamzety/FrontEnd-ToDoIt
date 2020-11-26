@@ -14,7 +14,6 @@ async function loadUsers() {
     //DONE
     try {
         const users = await httpService.get('user')
-        console.log('users from service:', users)
         return users;
     } catch (err) {
         console.log('userService: Coulnd\'t get users');
