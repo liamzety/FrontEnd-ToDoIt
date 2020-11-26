@@ -9,14 +9,14 @@
 
   .col-right {
     width: calc(100vw - 100px);
-    background-color: $mainGrey;
+    background-color: $secGrey;
   }
 
   .no-notes {
     padding: 30px;
     height: 85vh;
-    background-color: $mainWhite;
-    color: $mainBlue;
+    background-color: $mainGrey;
+    color: $thirdGrey;
     font-size: 4vw;
   }
 

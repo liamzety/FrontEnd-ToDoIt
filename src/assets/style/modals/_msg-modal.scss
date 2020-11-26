@@ -1,0 +1,35 @@
+.msg-modal {
+    bottom: 15px;
+    right: 15px;
+    position: fixed;
+    display: flex;
+    background-color: $mainGrey;
+    box-shadow: $mainShadow;
+    color: $mainWhite;
+    z-index: 10;
+    border-bottom: 4px solid darken($mainGrey, 8%);
+    border-radius: 10px;
+    transition: .5s ease-in-out;
+
+    .icon-container {
+        background-color: darken($mainGrey, 4%);
+        padding: 15px;
+        border-top-left-radius: 10px;
+
+    }
+
+    .msg-container {
+        padding: 15px;
+        text-transform: capitalize;
+
+    }
+
+    &.show-msg {
+        transform: translateX(0);
+
+    }
+
+    &.hide-msg {
+        transform: translateX(300px);
+    }
+}

@@ -18,6 +18,20 @@
 
     }
 
+    .msg-modal {
+        right: auto;
+        left: 15px;
+
+        &.show-msg {
+            transform: translateX(0);
+
+        }
+
+        &.hide-msg {
+            transform: translateX(-300px);
+        }
+    }
+
     @media (max-width:800px) {
         align-items: initial;
         justify-content: initial;
@@ -26,6 +40,12 @@
         .col-left {
             width: 100%;
             min-height: 20vh;
+
+            .loading-modal {
+                img {
+                    width: 50px;
+                }
+            }
         }
 
         .col-right {
@@ -34,7 +54,39 @@
 
             .log-sign-form {
                 align-items: center;
-                min-height: 80vh
+                min-height: 80vh;
+                text-align: center;
+
+                .form-container {
+                    align-items: center;
+
+                }
+            }
+
+            @media (max-width:400px) {
+                .form-container {
+                    align-items: center;
+
+                    div {
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+
+        .msg-modal {
+            right: 15px;
+            top: 15px;
+            bottom: auto;
+            left: auto;
+
+            &.show-msg {
+                transform: translateX(0);
+
+            }
+
+            &.hide-msg {
+                transform: translateX(300px);
             }
         }
     }

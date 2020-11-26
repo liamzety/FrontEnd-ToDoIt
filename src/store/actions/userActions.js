@@ -15,7 +15,13 @@ export function login(user) {
                 dispatch({ type: 'LOG_USER', user: signedUser })
                 return user
             })
-            .catch(err => { throw err })
+            .catch(({ msg }) => {
+                dispatch({ type: 'SET_MSG', msg: msg || 'Unexpected error, try again later.' })
+                setTimeout(() => {
+                    dispatch({ type: 'RESET_MSG' })
+                }, 3000);
+                throw new Error(msg)
+            })
 
     }
 }
@@ -25,6 +31,13 @@ export function signup(user) {
             .then(signedUser => {
                 dispatch({ type: 'LOG_USER', user: signedUser })
                 return user
+            })
+            .catch(({ msg }) => {
+                dispatch({ type: 'SET_MSG', msg })
+                setTimeout(() => {
+                    dispatch({ type: 'RESET_MSG' })
+                }, 3000);
+                throw new Error(msg)
             })
     }
 }

@@ -1,16 +1,19 @@
 .notes-list {
-    max-height: calc(80vh - 100px);
+    max-height: calc(80vh - 70px);
     max-width: 92px;
     overflow-y: overlay;
     width: 100%;
-    padding-right: 10px;
-    padding-left: 10px;
 
     li {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         cursor: pointer;
+        padding: 5px;
+
+        &:hover {
+            background-color: rgba($thirdGrey, 0.1);
+        }
     }
 
     * {

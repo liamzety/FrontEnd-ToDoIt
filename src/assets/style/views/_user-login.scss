@@ -32,6 +32,12 @@
     @media (max-width:800px) {
         .log-sign-form {
             align-items: center;
+            text-align: center;
+
+            div {
+                align-items: center;
+            }
+
             min-height: 50vh
         }
 

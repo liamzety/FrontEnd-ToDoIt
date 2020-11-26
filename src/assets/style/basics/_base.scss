@@ -3,11 +3,25 @@
   outline-style: none;
   margin: 0;
   padding: 0;
-  font-family: font1;
+  font-family: Montserrat, Arimo, sans-serif;
 }
 
 html {
   font-size: 16px;
+
+  @media (max-width: 800px) {
+    font-size: 14px;
+
+  }
+}
+
+h1 {
+  font-size: 1.7rem;
+
+  @media (max-width: 800px) {
+    font-size: 1.5rem;
+
+  }
 }
 
 
@@ -72,23 +86,30 @@ button {
   height: 100%;
 }
 
-/* width */
 ::-webkit-scrollbar {
   width: 5px;
   height: 5px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: $secGrey;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
-  background: $mainWhite;
+  background: $thirdGrey;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
+  background: $mainBlue;
+}
+
+//Selection color
+::-moz-selection {
+  color: $mainGrey;
+  background: $mainBlue;
+}
+
+::selection {
+  color: $mainGrey;
   background: $mainBlue;
 }
