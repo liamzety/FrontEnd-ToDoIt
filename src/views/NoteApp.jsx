@@ -71,7 +71,6 @@ export function NoteApp({ history }) {
   //--------------------------------
   async function onLogOut() {
     await dispatch(logout())
-    console.log('onLogOut() history.push("/")',)
     history.push("/")
   }
   function onNoteSelect(note) {
