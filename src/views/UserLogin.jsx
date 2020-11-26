@@ -4,6 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { UserLog } from '../cmps/UserLog'
 import { login } from '../store/actions/userActions';
 import loader from '../assets/img/loader.gif';
+import { ImWarning } from 'react-icons/im';
+//React animations
+import { fadeOut, zoomIn } from 'react-animations';
+import { css, StyleSheet } from 'aphrodite';
 
 export function UserLogin({ history }) {
   const dispatch = useDispatch();
@@ -41,7 +45,14 @@ export function UserLogin({ history }) {
         }
         <div className="col-right-wrapper absolute"></div>
       </div>
-      {msg && <div className="msg-modal"></div>}
+      <div className={`${msg ? 'show-msg' : 'hide-msg'} msg-modal`}>
+        <div className="icon-container flex align-center justify-center">
+          <ImWarning />
+        </div>
+        <div className="msg-container flex align-center justify-center">
+          <p>{msg}</p>
+        </div>
+      </div>
     </section>
   )
 }

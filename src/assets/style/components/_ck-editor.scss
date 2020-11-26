@@ -1,5 +1,9 @@
 .ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-focused {
-    border-color: $mainBlue;
+    border: none;
+}
+
+.ck.ck-editor__editable:not(.ck-editor__nested-editable) {
+    border: none;
 }
 
 .ck.ck-toolbar-dropdown .ck.ck-toolbar .ck.ck-toolbar__items {
@@ -13,31 +17,37 @@
 }
 
 .ck.ck-toolbar {
-    background-color: $secGrey;
+    background-color: $mainGrey;
 }
 
 .ck.ck-button:not(.ck-disabled):hover,
 a.ck.ck-button:not(.ck-disabled):hover {
     background: $mainBlue;
-
+    color: $mainWhite;
 }
 
 .ck .ck-button {
     color: $mainWhite;
     cursor: pointer;
+    color: $thirdGrey;
+}
+
+.ck.ck-editor__main>.ck-editor__editable {
+    background-color: $mainGrey;
+    color: $mainWhite;
 }
 
 .ck-editor {
-    height: 100%;
     width: calc(100vw - 100px);
-
+    border: 1px solid $mainWhite;
     background-color: $mainGrey;
     color: $mainGrey;
 
     .ck-content {
         padding: 10px 25px;
-        height: calc(80vh - 50px);
-    }
+        height: calc(100vh - 150px);
+        border: 1px solid transparent;
 
+    }
 
 }

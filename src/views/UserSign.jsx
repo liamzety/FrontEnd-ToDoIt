@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { signup } from '../store/actions/userActions';
 import loader from '../assets/img/loader.gif';
+import { ImWarning } from 'react-icons/im';
 
 export function UserSign({ history }) {
     const [isLoadingModal, setIsLoadingModal] = useState(false)
@@ -64,7 +65,14 @@ export function UserSign({ history }) {
                     </div>
                 </form>
             </div>
-            {msg && <div className="msg-modal"></div>}
+            <div className={`${msg ? 'show-msg' : 'hide-msg'} msg-modal`}>
+                <div className="icon-container flex align-center justify-center">
+                    <ImWarning />
+                </div>
+                <div className="msg-container flex align-center justify-center">
+                    <p>{msg}</p>
+                </div>
+            </div>
 
         </div>
     )

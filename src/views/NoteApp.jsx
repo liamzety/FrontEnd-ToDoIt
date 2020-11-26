@@ -49,7 +49,7 @@ export function NoteApp({ history }) {
 
   //if window key Ctrl+S then save curr note
   function onWindowKey(ev) {
-    if (ev.ctrlKey && ev.key === 's') {
+    if (ev.ctrlKey && (ev.key.toLowerCase() === 's' || ev.key === 'ד')) {
       ev.preventDefault()
       onUpdateNote(currNote)
     }

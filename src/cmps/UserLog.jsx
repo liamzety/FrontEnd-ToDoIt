@@ -20,13 +20,13 @@ export function UserLog({ onLogin, isLoadingModal }) {
             <div className="form-container">
                 <input onChange={onLogUserInp} name="username" type="text" placeholder="username" required />
                 <input onChange={onLogUserInp} name="password" type="text" placeholder="password" required />
-                <div className="flex align-center col">
+                <div className="flex align-end col">
                     <button style={{
                         cursor: isLoadingModal ? 'no-drop' : 'pointer',
                         backgroundColor: isLoadingModal ? '#393e46' : ''
                     }}
                     >{isLoadingModal ? 'Loading...' : 'Login'}</button>
-                    <div className="flex col text-center">
+                    <div className="flex align-end col">
                         <p>Dont have an account?</p>
                         <NavLink to='/sign'>Sign in here </NavLink>
                     </div>
