@@ -27,8 +27,8 @@ async function login(userCred) {
         const user = await httpService.post('auth/login', userCred);
         return _handleLogin(user)
     } catch (err) {
-        console.log('userService: Wrong username or password');
-        throw err;
+        console.log(err);
+        throw { msg: 'Wrong username or password' };
     }
 }
 async function signup(userCred) {
@@ -40,8 +40,8 @@ async function signup(userCred) {
         const newUser = await httpService.post('auth/signup', user)
         return _handleLogin(newUser)
     } catch (err) {
-        console.log('userService: Couldn\'t sign up', err);
-        return Promise.reject(err.response.data);
+        console.log('userService: Couldn\'t sign up', err.response.data);
+        throw { msg: err.response.data }
     }
 }
 

@@ -26,6 +26,12 @@
         .col-left {
             width: 100%;
             min-height: 20vh;
+
+            .loading-modal {
+                img {
+                    width: 50px;
+                }
+            }
         }
 
         .col-right {

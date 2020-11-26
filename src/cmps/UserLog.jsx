@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
-export function UserLog({ onLogin }) {
+export function UserLog({ onLogin, isLoadingModal }) {
     const [userDetails, setUserDetails] = useState(null)
 
     function onLogUserInp(ev) {
@@ -18,10 +18,14 @@ export function UserLog({ onLogin }) {
 
             }}>
             <div className="form-container">
-                <input onChange={onLogUserInp} name="username" type="text" placeholder="username" />
-                <input onChange={onLogUserInp} name="password" type="text" placeholder="password" />
+                <input onChange={onLogUserInp} name="username" type="text" placeholder="username" required />
+                <input onChange={onLogUserInp} name="password" type="text" placeholder="password" required />
                 <div className="flex align-center col">
-                    <button >Login</button>
+                    <button style={{
+                        cursor: isLoadingModal ? 'no-drop' : 'pointer',
+                        backgroundColor: isLoadingModal ? '#393e46' : ''
+                    }}
+                    >{isLoadingModal ? 'Loading...' : 'Login'}</button>
                     <div className="flex col text-center">
                         <p>Dont have an account?</p>
                         <NavLink to='/sign'>Sign in here </NavLink>
