@@ -20,7 +20,6 @@ export function login(user) {
     }
 }
 export function signup(user) {
-    console.log('signing up:', user)
     return dispatch => {
         return userService.signup(user)
             .then(signedUser => {

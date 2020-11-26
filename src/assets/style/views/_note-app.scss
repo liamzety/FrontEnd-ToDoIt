@@ -1,15 +1,23 @@
 .note-app {
-  height: 100vh;
+  min-height: 100vh;
+  color: $mainWhite;
+  overflow: hidden;
 
   .col-left {
-    width: 200px;
+    width: 100px;
   }
 
   .col-right {
-    flex-grow: 1;
+    width: calc(100vw - 100px);
+    background-color: $mainGrey;
   }
 
-  .editor {
-    resize: none;
+  .no-notes {
+    padding: 30px;
+    height: 85vh;
+    background-color: $mainWhite;
+    color: $mainBlue;
+    font-size: 4vw;
   }
+
 }

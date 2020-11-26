@@ -5,6 +5,9 @@ import { loadUser, logout } from '../store/actions/userActions';
 import { SideBar } from '../cmps/SideBar';
 import { TopBar } from '../cmps/TopBar';
 import { useState } from 'react';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 
 export function NoteApp({ history }) {
   const dispatch = useDispatch();
@@ -15,16 +18,14 @@ export function NoteApp({ history }) {
   const [currNote, setCurrNote] = useState(null)
   const [isUnsaved, setisUnsaved] = useState(false)
 
-
   //If user is not logged then move to home
   useEffect(() => {
-    console.log('if (!loggedUser) history.push("/")',)
-
     if (!loggedUser) history.push("/")
     else {
       dispatch(loadUser(loggedUser._id))
       _setNotes(loggedUser.notes[loggedUser.notes.length - 1])
     }
+
   }, [])
 
   //Detect changes, if changes were made show unsaved icon
@@ -60,6 +61,7 @@ export function NoteApp({ history }) {
   }
   function onRemoveNote() {
     dispatch(removeNote(currNote._id, loggedUser))
+    _setNotes(loggedUser.notes[loggedUser.notes.length - 1] || null)
   }
   function onUpdateNote() {
     dispatch(updateNote(currNote, loggedUser))
@@ -75,13 +77,11 @@ export function NoteApp({ history }) {
   function onNoteSelect(note) {
     _setNotes(note)
   }
-  function onNoteChange(ev) {
-    const target = ev.target
+  function onNoteChange(type, content) {
     setCurrNote(prevState => {
       return {
         ...prevState,
-        [target.name]: target.value
-
+        [type]: content
       }
     })
   }
@@ -89,6 +89,9 @@ export function NoteApp({ history }) {
     setDefaultNote(note)
     setCurrNote(note)
   }
+
+
+
   if (!loggedUser) {
     return <h1>Loading...</h1>
   }
@@ -99,28 +102,38 @@ export function NoteApp({ history }) {
           notes={loggedUser.notes}
           onNoteSelect={onNoteSelect}
           onAddNote={onAddNote}
-
+          currNote={currNote}
         />
       </div>
 
       <div className="col-right col flex ">
         <TopBar
+          onNoteChange={onNoteChange}
           isUnsaved={isUnsaved}
           currNote={currNote}
           user={loggedUser}
           onUpdateNote={onUpdateNote}
           onRemoveNote={onRemoveNote}
           onLogOut={onLogOut} />
-        {currNote && loggedUser.notes.length !== 0 ?
-          <textarea
-            name="body"
-            value={currNote.body}
-            onChange={onNoteChange}
-            className="editor h100"
-          ></textarea>
 
+        {currNote && loggedUser.notes.length !== 0 ?
+          <CKEditor
+            editor={ClassicEditor}
+            data={currNote.body}
+            config={{
+              removePlugins: ['MediaEmbed', 'ImageUpload'],
+              placeholder: 'Write your ideas here!',
+              uiColor: '#66AB16'
+            }}
+            onChange={(event, editor) => {
+              const content = editor.getData();
+              onNoteChange('body', content)
+            }}
+          />
           :
-          <h1>No notes left!</h1>
+          <div className="no-notes flex align-center justify-center">
+            <h1>No notes found!</h1>
+          </div>
         }
 
       </div>

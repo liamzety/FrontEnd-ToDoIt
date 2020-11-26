@@ -9,7 +9,7 @@ export const noteService = {
 async function add(user) {
     const note = {
         title: "Untitled",
-        body: "Write your ideas here!"
+        body: ""
     }
     return await httpService.post('note', { note, user });
 }
