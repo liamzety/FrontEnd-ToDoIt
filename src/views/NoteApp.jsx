@@ -121,9 +121,8 @@ export function NoteApp({ history }) {
             editor={ClassicEditor}
             data={currNote.body}
             config={{
-              removePlugins: ['MediaEmbed', 'ImageUpload'],
+              removePlugins: ['MediaEmbed', 'ImageUpload', 'Indent', 'Outdent'],
               placeholder: 'Write your ideas here!',
-              uiColor: '#66AB16'
             }}
             onChange={(event, editor) => {
               const content = editor.getData();
