@@ -102,6 +102,8 @@ export function NoteApp({ history }) {
           onNoteSelect={onNoteSelect}
           onAddNote={onAddNote}
           currNote={currNote}
+          isUnsaved={isUnsaved}
+          onUpdateNote={onUpdateNote}
         />
       </div>
 
@@ -111,7 +113,6 @@ export function NoteApp({ history }) {
           isUnsaved={isUnsaved}
           currNote={currNote}
           user={loggedUser}
-          onUpdateNote={onUpdateNote}
           onRemoveNote={onRemoveNote}
           onLogOut={onLogOut} />
 

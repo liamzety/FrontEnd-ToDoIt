@@ -25,10 +25,10 @@
     }
 
     a {
-        color: $mainBlue;
+        color: $mainGreen;
 
         &:hover {
-            color: scale-color($mainBlue, $lightness: 50%)
+            color: scale-color($mainGreen, $lightness: 50%)
         }
     }
 
@@ -39,11 +39,11 @@
     input {
         width: 100%;
         background-color: transparent;
-        border: 2px solid $mainBlue;
+        border: 2px solid $mainGreen;
         border-radius: 5px;
         padding: 8px;
         font-size: 1.2rem;
-        color: $mainBlue;
+        color: $mainGreen;
         margin-bottom: 15px;
 
         &:last-of-type {
@@ -51,7 +51,7 @@
         }
 
         &::placeholder {
-            color: rgba($mainBlue, 0.6);
+            color: rgba($mainGreen, 0.6);
             opacity: .5;
         }
     }
@@ -60,7 +60,7 @@
         width: 50%;
         max-width: 300px;
         font-weight: 700;
-        background-color: $mainBlue;
+        background-color: $mainGreen;
         border: none;
         border-radius: 5px;
         padding: 8px;

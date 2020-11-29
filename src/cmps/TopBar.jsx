@@ -24,7 +24,9 @@ export function TopBar({ onLogOut, currNote, onUpdateNote, isUnsaved, onRemoveNo
             animationDuration: '.3s'
         },
     })
-    function handleModal() {
+    function handleModal(ev) {
+        if (ev) ev.persist()
+
         setActionModal(prevSt => {
             return {
                 ...prevSt,
@@ -39,6 +41,10 @@ export function TopBar({ onLogOut, currNote, onUpdateNote, isUnsaved, onRemoveNo
                         isOn: !prevSt.isOn
                     }
                 })
+                //onLogOut() is placed here to avoid memory leak
+                //(ending the cmp life b4 settimeout is over)
+                if (ev && ev.target.dataset.action === 'logout') onLogOut()
+
                 //100 ms less to avoid popping
             }, 200)
         } else {
@@ -56,10 +62,6 @@ export function TopBar({ onLogOut, currNote, onUpdateNote, isUnsaved, onRemoveNo
                 currNote &&
                 <>
                     <div className="title flex align-center">
-                        <BsCircleFill style={{
-                            opacity: isUnsaved ? '1' : '0'
-                            , cursor: 'default'
-                        }} />
                         <div className="header-container">
                             <ContentEditable
                                 className="header"
@@ -83,16 +85,6 @@ export function TopBar({ onLogOut, currNote, onUpdateNote, isUnsaved, onRemoveNo
                             <div className="action-modal-container flex justify-center col">
                                 {currNote &&
                                     <>
-                                        <div style={{ fontWeight: isUnsaved ? '700' : '400', color: isUnsaved ? '#079688' : '#f1f1f2eb' }}
-                                            className="action flex align-center"
-                                            onClick={() => {
-                                                onUpdateNote()
-                                                handleModal()
-                                            }}>
-                                            {isUnsaved ? <VscSaveAs style={{ color: '#079688' }} /> : <VscSave />}
-                                   Save Note
-                                   </div>
-
                                         <div className="action flex align-center"
                                             onClick={() => {
                                                 onRemoveNote()
@@ -104,10 +96,10 @@ export function TopBar({ onLogOut, currNote, onUpdateNote, isUnsaved, onRemoveNo
                                     </>
                                 }
                                 <div
+                                    data-action='logout'
                                     className="action flex align-center"
-                                    onClick={() => {
-                                        onLogOut()
-                                        handleModal()
+                                    onClick={ev => {
+                                        handleModal(ev)
                                     }}>
                                     <CgLogOut />Logout
                                  </div>

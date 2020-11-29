@@ -2,19 +2,23 @@
     background-color: $secGrey;
     padding: 20px 0;
 
-
-
-    >*:not(:last-child) {
-        margin-bottom: 25px;
-    }
-
     .logo-container {
-        width: 50px;
-        height: 50px;
-        margin-bottom: 40px;
+        width: 70px;
+        height: 70px;
 
         img {
-            width: 100%;
+            cursor: pointer;
+            width: 70px;
+            transform: translateY(-10px);
+            left: 0;
+            transition: .3s;
         }
+
+    }
+
+    .add-note-container {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 20px;
     }
 }

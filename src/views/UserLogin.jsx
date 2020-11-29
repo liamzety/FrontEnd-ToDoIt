@@ -5,9 +5,6 @@ import { UserLog } from '../cmps/UserLog'
 import { login } from '../store/actions/userActions';
 import loader from '../assets/img/loader.gif';
 import { ImWarning } from 'react-icons/im';
-//React animations
-import { fadeOut, zoomIn } from 'react-animations';
-import { css, StyleSheet } from 'aphrodite';
 
 export function UserLogin({ history }) {
   const dispatch = useDispatch();
@@ -16,7 +13,18 @@ export function UserLogin({ history }) {
 
   useEffect(() => {
     if (sessionStorage.user) history.push("/notes")
+    window.addEventListener("keydown", onWindowKey);
+    return () => window.removeEventListener("keydown", onWindowKey);
   }, [])
+
+  //My super doper secret shortcut
+  function onWindowKey(ev) {
+    if (ev.ctrlKey && (ev.key === '1')) {
+      ev.preventDefault()
+      onLogin({ username: 'liam', password: '1' })
+    }
+  }
+
 
   async function onLogin(userToLog) {
     setIsLoadingModal(true)

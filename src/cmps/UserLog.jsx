@@ -24,7 +24,7 @@ export function UserLog({ onLogin, isLoadingModal }) {
             <h1>into one place!</h1>
             <div className="form-container">
                 <input onChange={onLogUserInp} name="username" type="text" placeholder="username" required />
-                <input onChange={onLogUserInp} name="password" type="text" placeholder="password" required />
+                <input onChange={onLogUserInp} name="password" type="password" placeholder="password" required />
                 <div className="flex align-end col">
                     <button style={{
                         cursor: isLoadingModal ? 'no-drop' : 'pointer',

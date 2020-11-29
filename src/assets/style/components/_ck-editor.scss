@@ -22,7 +22,7 @@
 
 .ck.ck-button:not(.ck-disabled):hover,
 a.ck.ck-button:not(.ck-disabled):hover {
-    background: $mainBlue !important;
+    background: $mainGreen !important;
     color: $mainWhite !important;
 }
 
@@ -39,15 +39,29 @@ a.ck.ck-button:not(.ck-disabled):hover {
 
 .ck-editor {
     width: calc(100vw - 100px) !important;
-    border: 1px solid $mainWhite !important;
+    border: 1px solid $thirdGrey !important;
     background-color: $mainGrey !important;
     color: $mainGrey !important;
 
     .ck-content {
-        padding: 10px 25px !important;
+        padding: 10px 40px !important;
         height: calc(100vh - 150px) !important;
         border: 1px solid transparent !important;
 
     }
 
+}
+
+.ck.ck-list {
+    background-color: $mainGrey;
+}
+
+.ck.ck-list__item .ck-button.ck-on {
+    background-color: $mainGreen;
+
+}
+
+.ck.ck-button.ck-on,
+a.ck.ck-button.ck-on {
+    background-color: $mainGreen;
 }
