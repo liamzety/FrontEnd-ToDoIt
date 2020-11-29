@@ -4,22 +4,15 @@
     min-height: 85px;
     padding: 0 30px;
 
-    .title {
-        svg {
-            font-size: 10px;
-            margin-right: 10px;
-            color: $mainGreen;
-        }
-    }
 
     .actions {
         margin-left: auto;
     }
 
-    .header-container {
+    .title-container {
         max-width: 300px;
 
-        .header {
+        .title {
             padding: 5px;
             border: 2px dotted transparent;
             font-size: #{"min(max(16px, 4vw), 22px);"};
@@ -36,10 +29,15 @@
             }
         }
 
-        @media (max-width:480px) {
-            max-width: 100px;
+    }
 
+    @media (max-width:480px) {
+        padding: 0 5px;
+
+        .title-container {
+            max-width: 100px;
         }
+
     }
 
 }

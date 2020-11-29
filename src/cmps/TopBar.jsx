@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
 //React icons
-import { BsCircleFill } from 'react-icons/bs'
 import { HiDotsHorizontal } from 'react-icons/hi'
 import { RiDeleteBin2Line } from 'react-icons/ri'
 import { CgLogOut } from 'react-icons/cg'
-import { VscSaveAs, VscSave } from 'react-icons/vsc'
 //React animations
 import { fadeOut, zoomIn } from 'react-animations';
 import { css, StyleSheet } from 'aphrodite';
@@ -60,19 +58,14 @@ export function TopBar({ onLogOut, currNote, onUpdateNote, isUnsaved, onRemoveNo
         <div className="topbar flex align-center space-between">
             {
                 currNote &&
-                <>
-                    <div className="title flex align-center">
-                        <div className="header-container">
-                            <ContentEditable
-                                className="header"
-                                html={currNote.title}
-                                onChange={(ev) => { onNoteChange('title', ev.target.value) }}
-                                tagName='h2'
-                            />
-                        </div>
-
-                    </div>
-                </>
+                <div className="title-container">
+                    <ContentEditable
+                        className="title"
+                        html={currNote.title}
+                        onChange={(ev) => { onNoteChange('title', ev.target.value) }}
+                        tagName='h2'
+                    />
+                </div>
             }
             <div className="actions relative">
                 <HiDotsHorizontal
