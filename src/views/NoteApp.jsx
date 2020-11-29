@@ -6,7 +6,7 @@ import { SideBar } from '../cmps/SideBar';
 import { TopBar } from '../cmps/TopBar';
 import { useState } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import * as Editor from 'ckeditor5-custom-build/build/ckeditor';
 
 // 
 export function NoteApp({ history }) {
@@ -25,7 +25,6 @@ export function NoteApp({ history }) {
       dispatch(loadUser(loggedUser._id))
       _setNotes(loggedUser.notes[loggedUser.notes.length - 1])
     }
-
   }, [])
 
   //Detect changes, if changes were made show unsaved icon
@@ -118,12 +117,36 @@ export function NoteApp({ history }) {
 
         {currNote && loggedUser.notes.length !== 0 ?
           <CKEditor
-            editor={ClassicEditor}
+            editor={Editor}
             data={currNote.body}
             config={{
-              removePlugins: ['MediaEmbed', 'ImageUpload', 'Indent', 'Outdent'],
+
+              toolbar: [
+                'heading',
+                '|',
+                'bold',
+                'underline',
+                'italic',
+                'link',
+                'bulletedList',
+                'numberedList',
+                'todoList',
+                'alignment',
+                '|',
+                'fontColor',
+                'fontSize',
+                'highlight',
+                '|',
+                'blockQuote',
+                'codeBlock',
+                '|',
+                'undo',
+                'redo',
+                '|'
+              ],
               placeholder: 'Write your ideas here!',
             }}
+
             onChange={(event, editor) => {
               const content = editor.getData();
               onNoteChange('body', content)
