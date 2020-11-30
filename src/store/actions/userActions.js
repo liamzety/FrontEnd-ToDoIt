@@ -51,3 +51,12 @@ export function logout() {
     }
 }
 
+export function updatePrefs(prefs, user) {
+    return dispatch => {
+        return userService.updatePrefs(prefs, user)
+            .then((updatedUser) => {
+                dispatch({ type: 'UPDATE_USER', updatedUser })
+            })
+    }
+}
+

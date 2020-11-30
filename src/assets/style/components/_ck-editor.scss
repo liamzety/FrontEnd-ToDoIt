@@ -88,3 +88,12 @@ a.ck.ck-button.ck-on {
     background-color: $secGrey;
     color: $mainWhite;
 }
+
+//Todo input 
+.ck-editor__editable .todo-list .todo-list__label>input {
+    background-color: $thirdGrey;
+
+    &::before {
+        border: 1px solid $mainWhite;
+    }
+}

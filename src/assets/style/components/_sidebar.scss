@@ -2,20 +2,6 @@
     background-color: $secGrey;
     padding: 20px 0;
 
-    .logo-container {
-        width: 70px;
-        height: 70px;
-
-        img {
-            cursor: pointer;
-            width: 70px;
-            transform: translateY(-10px);
-            left: 0;
-            transition: .3s;
-        }
-
-    }
-
     .add-note-container {
         width: 70px;
         height: 70px;

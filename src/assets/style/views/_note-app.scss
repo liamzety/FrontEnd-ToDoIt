@@ -3,6 +3,13 @@
   color: $mainWhite;
   overflow: hidden;
 
+  // Wrapper min-width to avoid a bug on refresh,
+  // when refresh and isSidebar is off, turn on and does not appear.
+  .col-left-wrapper {
+    min-width: 145px;
+
+  }
+
   .col-left {
     min-width: 145px;
     min-height: 100vh;

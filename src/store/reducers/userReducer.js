@@ -7,7 +7,6 @@ const initialState = {
 
 export function userReducer(state = initialState, action) {
     switch (action.type) {
-        //USER
         case 'LOG_USER':
             sessionStorage.setItem('user', JSON.stringify(action.user))
             return {
@@ -19,19 +18,12 @@ export function userReducer(state = initialState, action) {
                 ...state,
                 loggedUser: null
             }
-        //NOTE 
-        case 'SAVE_NOTE':
+
+        case 'UPDATE_USER':
             sessionStorage.setItem('user', JSON.stringify(action.updatedUser))
             return ({
                 ...state,
                 loggedUser: action.updatedUser
-            })
-
-        case 'REMOVE_NOTE':
-            sessionStorage.setItem('user', JSON.stringify(action.updatedUser))
-            return ({
-                ...state,
-                loggedUser: action.updatedUser,
             })
 
         default:

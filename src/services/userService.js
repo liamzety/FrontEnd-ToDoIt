@@ -5,7 +5,8 @@ export const userService = {
     login,
     signup,
     query,
-    logout
+    logout,
+    updatePrefs
 }
 async function query(userId) {
     return await httpService.get(`user/${userId}`)
@@ -31,7 +32,13 @@ async function login(userCred) {
 }
 async function signup(userCred) {
     const user = {
-        notes: [],
+        createdAt: Date.now(),
+        notes: [{
+            _id: _makeid(),
+            title: "Untitled",
+            body: ""
+        }],
+        prefs: { isSidebar: true },
         ...userCred
     }
     try {
@@ -48,7 +55,21 @@ async function logout() {
     sessionStorage.clear();
 }
 
+async function updatePrefs(prefs, user) {
+    user.prefs = prefs
+    return await httpService.put(`user/${user._id}`, user)
+}
 function _handleLogin(user) {
     sessionStorage.setItem('user', JSON.stringify(user))
     return user;
+}
+function _makeid(length = 14) {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (var i = 0; i < length; i++) {
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+
+    return text;
 }

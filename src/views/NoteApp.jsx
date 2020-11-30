@@ -1,14 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { addNote, updateNote, removeNote } from "../store/actions/noteActions";
-import { loadUser, logout } from '../store/actions/userActions';
+import { loadUser, logout, updatePrefs } from '../store/actions/userActions';
 import { SideBar } from '../cmps/SideBar';
 import { TopBar } from '../cmps/TopBar';
 import { useState } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import * as Editor from 'ckeditor5-custom-build/build/ckeditor';
 import ResizePanel from "react-resize-panel";
-import { IoResizeOutline } from 'react-icons/io'
+
 // 
 export function NoteApp({ history }) {
   const dispatch = useDispatch();
@@ -89,43 +89,49 @@ export function NoteApp({ history }) {
     setCurrNote(note)
   }
 
+  function toggleSidebar() {
+    dispatch(updatePrefs({ isSidebar: !loggedUser.prefs.isSidebar }, loggedUser))
+  }
+
 
 
   if (!loggedUser) {
     return <h1>Loading...</h1>
   }
+
   return (
     <section className="note-app flex">
-      <div className="relative">
-        <ResizePanel
-          className="relative"
-          direction="e"
-          handleClass="customHandle"
-          borderClass="customResizeBorder"
-        >
-
-          <div className="col-left flex">
-            <SideBar
-              notes={loggedUser.notes}
-              onNoteSelect={onNoteSelect}
-              onAddNote={onAddNote}
-              currNote={currNote}
-              isUnsaved={isUnsaved}
-              onUpdateNote={onUpdateNote}
-            />
-          </div>
-        </ResizePanel>
-
+      <div style={{ display: loggedUser.prefs.isSidebar ? 'flex' : 'none' }}>
+        {/* That wrapper is for the custom handle, needs a relative */}
+        <div className="col-left-wrapper relative">
+          <ResizePanel
+            direction="e"
+            handleClass="customHandle"
+            borderClass="customResizeBorder"
+          >
+            <div className='col-left flex'>
+              <SideBar
+                notes={loggedUser.notes}
+                onNoteSelect={onNoteSelect}
+                onAddNote={onAddNote}
+                currNote={currNote}
+                isUnsaved={isUnsaved}
+                onUpdateNote={onUpdateNote}
+              />
+            </div>
+          </ResizePanel>
+        </div>
       </div>
-
       <div className="col-right col flex ">
         <TopBar
           onNoteChange={onNoteChange}
-          isUnsaved={isUnsaved}
           currNote={currNote}
-          user={loggedUser}
           onRemoveNote={onRemoveNote}
-          onLogOut={onLogOut} />
+          onLogOut={onLogOut}
+          isSidebar={loggedUser.prefs.isSidebar}
+          toggleSidebar={toggleSidebar}
+          isUnsaved={isUnsaved}
+          onUpdateNote={onUpdateNote} />
 
         {currNote && loggedUser.notes.length !== 0 ?
           <CKEditor

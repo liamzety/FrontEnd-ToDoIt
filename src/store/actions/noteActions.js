@@ -5,21 +5,21 @@ import { noteService } from '../../services/noteService'
 export function addNote(user) {
     return async dispatch => {
         const updatedUser = await noteService.add(user)
-        dispatch({ type: 'SAVE_NOTE', updatedUser })
+        dispatch({ type: 'UPDATE_USER', updatedUser })
     }
 }
 //UPDATE
 export function updateNote(note, user) {
     return async dispatch => {
         const updatedUser = await noteService.update(note, user)
-        dispatch({ type: 'SAVE_NOTE', updatedUser })
+        dispatch({ type: 'UPDATE_USER', updatedUser })
     }
 }
 //REMOVE
 export function removeNote(noteId, user) {
     return async dispatch => {
         const updatedUser = await noteService.remove(noteId, user)
-        dispatch({ type: 'REMOVE_NOTE', updatedUser })
+        dispatch({ type: 'UPDATE_USER', updatedUser })
     }
 }
 

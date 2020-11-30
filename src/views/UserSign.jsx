@@ -55,7 +55,7 @@ export function UserSign({ history }) {
 
                     <div className="form-container">
                         <input onChange={onAddTempInp} name="username" type="text" placeholder="username" required />
-                        <input onChange={onAddTempInp} name="password" type="text" placeholder="password" required />
+                        <input onChange={onAddTempInp} name="password" type="password" placeholder="password" required />
 
                         <div className="flex align-center wrap-rev space-between">
                             <div>

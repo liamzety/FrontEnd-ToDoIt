@@ -3,13 +3,24 @@ import React, { useState } from 'react'
 import { HiDotsHorizontal } from 'react-icons/hi'
 import { RiDeleteBin2Line } from 'react-icons/ri'
 import { CgLogOut } from 'react-icons/cg'
+import { BsListUl } from 'react-icons/bs'
 //React animations
 import { fadeOut, zoomIn } from 'react-animations';
 import { css, StyleSheet } from 'aphrodite';
 
 import ContentEditable from 'react-contenteditable'
+import logo_sm from '../assets/img/logo_sm.png'
+import logo_sm_on from '../assets/img/logo_sm_on.png'
 
-export function TopBar({ onLogOut, currNote, onUpdateNote, isUnsaved, onRemoveNote, onNoteChange }) {
+export function TopBar(props) {
+    const { onLogOut,
+        currNote,
+        onRemoveNote,
+        onNoteChange,
+        toggleSidebar,
+        isSidebar,
+        isUnsaved,
+        onUpdateNote } = props
 
     const [actionModal, setActionModal] = useState({ isOn: false, isWaitingAnimation: false })
     const styles = StyleSheet.create({
@@ -56,6 +67,12 @@ export function TopBar({ onLogOut, currNote, onUpdateNote, isUnsaved, onRemoveNo
     }
     return (
         <div className="topbar flex align-center space-between">
+            {!isSidebar &&
+                <div onClick={onUpdateNote} data-title='Save Note' className="logo-container relative">
+                    <img style={{ opacity: isUnsaved ? '0' : '1' }} src={logo_sm} alt="logo" />
+                    <img className="absolute" style={{ opacity: isUnsaved ? '1' : '0' }} src={logo_sm_on} alt="logo_unsaved" />
+                </div>
+            }
             {
                 currNote &&
                 <div className="title-container">
@@ -88,6 +105,14 @@ export function TopBar({ onLogOut, currNote, onUpdateNote, isUnsaved, onRemoveNo
                                   </div>
                                     </>
                                 }
+                                <div
+                                    className="action flex align-center"
+                                    onClick={ev => {
+                                        toggleSidebar()
+                                        handleModal()
+                                    }}>
+                                    <BsListUl />Toggle Left Bar
+                                 </div>
                                 <div
                                     data-action='logout'
                                     className="action flex align-center"
