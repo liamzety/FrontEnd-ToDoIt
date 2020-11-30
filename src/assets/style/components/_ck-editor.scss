@@ -80,20 +80,20 @@ a.ck.ck-button.ck-on {
 //Toolbar item color (to avoid white color on hover)
 .ck.ck-icon,
 .ck.ck-icon * {
-    color: $thirdGrey;
+    color: $thirdGrey !important;
 }
 
 //Code block
 .ck-content pre {
-    background-color: $secGrey;
-    color: $mainWhite;
+    background-color: $secGrey !important;
+    color: $mainWhite !important;
 }
 
 //Todo input 
 .ck-editor__editable .todo-list .todo-list__label>input {
-    background-color: $thirdGrey;
+    background-color: $thirdGrey !important;
 
     &::before {
-        border: 1px solid $mainWhite;
+        border: 1px solid $mainWhite !important;
     }
 }
