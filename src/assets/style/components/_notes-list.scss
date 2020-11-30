@@ -1,8 +1,8 @@
 .notes-list {
     max-height: calc(80vh - 70px);
-    max-width: 92px;
     overflow-y: overlay;
     width: 100%;
+    padding: 0 10px;
 
     li {
         white-space: nowrap;

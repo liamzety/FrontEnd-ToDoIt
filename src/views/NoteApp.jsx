@@ -7,7 +7,8 @@ import { TopBar } from '../cmps/TopBar';
 import { useState } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import * as Editor from 'ckeditor5-custom-build/build/ckeditor';
-
+import ResizePanel from "react-resize-panel";
+import { IoResizeOutline } from 'react-icons/io'
 // 
 export function NoteApp({ history }) {
   const dispatch = useDispatch();
@@ -95,15 +96,26 @@ export function NoteApp({ history }) {
   }
   return (
     <section className="note-app flex">
-      <div className="col-left flex">
-        <SideBar
-          notes={loggedUser.notes}
-          onNoteSelect={onNoteSelect}
-          onAddNote={onAddNote}
-          currNote={currNote}
-          isUnsaved={isUnsaved}
-          onUpdateNote={onUpdateNote}
-        />
+      <div className="relative">
+        <ResizePanel
+          className="relative"
+          direction="e"
+          handleClass="customHandle"
+          borderClass="customResizeBorder"
+        >
+
+          <div className="col-left flex">
+            <SideBar
+              notes={loggedUser.notes}
+              onNoteSelect={onNoteSelect}
+              onAddNote={onAddNote}
+              currNote={currNote}
+              isUnsaved={isUnsaved}
+              onUpdateNote={onUpdateNote}
+            />
+          </div>
+        </ResizePanel>
+
       </div>
 
       <div className="col-right col flex ">

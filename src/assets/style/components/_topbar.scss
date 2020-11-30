@@ -10,7 +10,7 @@
     }
 
     .title-container {
-        max-width: 300px;
+        max-width: 90%;
 
         .title {
             padding: 5px;
@@ -33,11 +33,6 @@
 
     @media (max-width:480px) {
         padding: 0 5px;
-
-        .title-container {
-            max-width: 100px;
-        }
-
     }
 
 }

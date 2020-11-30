@@ -4,12 +4,18 @@
   overflow: hidden;
 
   .col-left {
-    width: 100px;
+    min-width: 145px;
+    min-height: 100vh;
+    flex-grow: 1;
   }
 
   .col-right {
-    width: calc(100vw - 100px);
     background-color: $secGrey;
+    min-width: 100px;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
   }
 
   .no-notes {
