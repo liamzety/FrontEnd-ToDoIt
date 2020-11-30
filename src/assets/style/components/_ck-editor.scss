@@ -1,47 +1,10 @@
-.ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-focused {
-    border: none !important;
-}
-
-.ck.ck-editor__editable:not(.ck-editor__nested-editable) {
-    border: none !important;
-}
-
-.ck.ck-toolbar-dropdown .ck.ck-toolbar .ck.ck-toolbar__items {
-    @media (max-width:480px) {
-        flex-wrap: wrap !important;
-    }
-}
-
-.ck.ck-editor__top .ck-sticky-panel .ck-toolbar {
-    border: none !important;
-}
-
-.ck.ck-toolbar {
-    background-color: $mainGrey !important;
-}
-
-.ck.ck-button:not(.ck-disabled):hover,
-a.ck.ck-button:not(.ck-disabled):hover {
-    background: $mainGreen !important;
-    color: $mainWhite !important;
-}
-
-.ck .ck-button {
-    color: $mainWhite !important;
-    cursor: pointer !important;
-    color: $thirdGrey !important;
-}
-
-.ck.ck-editor__main>.ck-editor__editable {
-    background-color: $mainGrey !important;
-    color: $mainWhite !important;
-}
-
+//Editor
 .ck-editor {
     border: 1px solid $thirdGrey !important;
     background-color: $mainGrey !important;
     color: $mainGrey !important;
 
+    //Editor content
     .ck-content {
         padding: 10px 40px !important;
         height: calc(100vh - 150px) !important;
@@ -51,16 +14,77 @@ a.ck.ck-button:not(.ck-disabled):hover {
 
 }
 
+//Editor editable content
+.ck.ck-editor__main>.ck-editor__editable {
+    background-color: $mainGrey !important;
+    color: $mainWhite !important;
+}
+
+//Editor editable border
+.ck.ck-editor__editable:not(.ck-editor__nested-editable) {
+    border: none !important;
+}
+
+//Editor editable border focused
+.ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-focused {
+    border: none !important;
+}
+
+//Toolbar
+.ck.ck-toolbar {
+    background-color: $mainGrey !important;
+}
+
+//Toolbar border
+.ck.ck-editor__top .ck-sticky-panel .ck-toolbar {
+    border: none !important;
+}
+
+//Toolbar hamburder menu
+.ck.ck-toolbar-dropdown .ck.ck-toolbar .ck.ck-toolbar__items {
+    @media (max-width:480px) {
+        flex-wrap: wrap !important;
+    }
+}
+
+//Toolbar item
+.ck .ck-button {
+    cursor: pointer !important;
+    color: $thirdGrey !important;
+}
+
+//Toolbar item hover
+.ck.ck-button:not(.ck-disabled):hover,
+a.ck.ck-button:not(.ck-disabled):hover {
+    background: $mainGreen !important;
+    color: $mainWhite !important;
+}
+
+//Toolbar header/paragraph modal 
 .ck.ck-list {
-    background-color: $mainGrey;
+    background-color: $mainGrey !important;
 }
 
-.ck.ck-list__item .ck-button.ck-on {
-    background-color: $mainGreen;
-
-}
-
+//Toolbar header/paragraph color on active
 .ck.ck-button.ck-on,
 a.ck.ck-button.ck-on {
-    background-color: $mainGreen;
+    background: $mainGreen !important;
+}
+
+//Toolbar item color on modal select
+.ck.ck-splitbutton.ck-splitbutton_open>.ck-button:not(.ck-on):not(.ck-disabled):not(:hover),
+.ck.ck-splitbutton:hover>.ck-button:not(.ck-on):not(.ck-disabled):not(:hover) {
+    background: $mainGreen !important;
+}
+
+//Toolbar item color (to avoid white color on hover)
+.ck.ck-icon,
+.ck.ck-icon * {
+    color: $thirdGrey;
+}
+
+//Code block
+.ck-content pre {
+    background-color: $secGrey;
+    color: $mainWhite;
 }

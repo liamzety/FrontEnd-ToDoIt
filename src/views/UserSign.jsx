@@ -51,7 +51,6 @@ export function UserSign({ history }) {
                     }}>
                     <img src={logoMain} alt="logo" />
                     <h1>Document your ideas</h1>
-                    <h1>and store all the concepts your earn each day</h1>
                     <h1>into one place!</h1>
 
                     <div className="form-container">
