@@ -84,7 +84,7 @@ export function TopBar(props) {
                     />
                 </div>
             }
-            <div className="actions relative">
+            <div className="actions relative align-center justify-center">
                 <HiDotsHorizontal
                     style={{ transform: actionModal.isWaitingAnimation ? 'rotate(0)' : 'rotate(90deg)' }}
                     onClick={handleModal} />
@@ -113,6 +113,10 @@ export function TopBar(props) {
                                     }}>
                                     <BsListUl />Toggle Left Bar
                                  </div>
+
+                                <div className="action flex align-center">
+                                    <button className="progressier-install-button">Install The App!</button>
+                                </div>
                                 <div
                                     data-action='logout'
                                     className="action flex align-center"

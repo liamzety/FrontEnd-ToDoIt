@@ -7,6 +7,22 @@
 
     .actions {
         margin-left: auto;
+
+        .progressier-install-button {
+            pointer-events: auto;
+            opacity: 1;
+            background: no-repeat;
+            border: none;
+            color: $mainWhite;
+            font-size: 1rem;
+            text-transform: capitalize;
+
+            span span:first-child {
+                margin-right: 0px !important;
+                width: 25px !important;
+                height: 25px !important;
+            }
+        }
     }
 
     .title-container {
