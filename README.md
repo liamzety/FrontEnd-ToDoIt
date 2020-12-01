@@ -12,7 +12,13 @@
   - Need an organized way to manage your notes all in one place?
   > Made with the latest Tech including React, Redux, SCSS, MongoDB, NodeJS, Express and more.
 
+## The App
+![Recordit GIF](http://g.recordit.co/hHHItwhL9F.gif)
 
+- **Mobile**
+
+<a href="https://i.ibb.co/7j8LL2W/Capture.jpgg"><img src="https://i.ibb.co/7j8LL2W/Capture.jpg"/></a>
+ 
 ---
 
 ## Installation
