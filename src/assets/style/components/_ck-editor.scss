@@ -77,11 +77,7 @@ a.ck.ck-button.ck-on {
     background: $mainGreen !important;
 }
 
-//Toolbar item color (to avoid white color on hover)
-.ck.ck-icon,
-.ck.ck-icon * {
-    color: $thirdGrey !important;
-}
+
 
 //Code block
 .ck-content pre {
@@ -96,4 +92,14 @@ a.ck.ck-button.ck-on {
     &::before {
         border: 1px solid $mainWhite !important;
     }
+}
+
+//Link modal 
+.ck-balloon-rotator__content {
+    background-color: $mainGrey !important;
+}
+
+//Link modal inner
+.ck .ck-input .ck-input-text {
+    background-color: $mainWhite !important;
 }

@@ -80,7 +80,8 @@ export function NoteApp({ history }) {
     setCurrNote(prevState => {
       return {
         ...prevState,
-        [type]: content
+        //Regex to avoid line breaks and tags showing in NotesList
+        [type]: type === 'title' ? content.replace(/<div>|<br>/g, '') : content
       }
     })
   }

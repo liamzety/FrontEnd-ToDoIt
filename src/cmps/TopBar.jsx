@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 //React icons
 import { HiDotsHorizontal } from 'react-icons/hi'
 import { RiDeleteBin2Line } from 'react-icons/ri'
@@ -22,6 +22,7 @@ export function TopBar(props) {
         isUnsaved,
         onUpdateNote } = props
 
+    const titleRef = useRef(null)
     const [actionModal, setActionModal] = useState({ isOn: false, isWaitingAnimation: false })
     const styles = StyleSheet.create({
         zoomIn: {
@@ -79,7 +80,10 @@ export function TopBar(props) {
                     <ContentEditable
                         className="title"
                         html={currNote.title}
-                        onChange={(ev) => { onNoteChange('title', ev.target.value) }}
+                        onChange={(ev) => {
+                            console.log(ev)
+                            onNoteChange('title', ev.target.value)
+                        }}
                         tagName='h2'
                     />
                 </div>
