@@ -9,6 +9,8 @@ export function userReducer(state = initialState, action) {
     switch (action.type) {
         case 'LOG_USER':
             sessionStorage.setItem('user', JSON.stringify(action.user))
+            document.cookie = `userId=${action.user._id}`
+
             return {
                 ...state,
                 loggedUser: action.user

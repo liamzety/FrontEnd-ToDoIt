@@ -1,7 +1,6 @@
 import httpService from './httpService';
 
 export const userService = {
-    loadUsers,
     login,
     signup,
     query,
@@ -10,16 +9,6 @@ export const userService = {
 }
 async function query(userId) {
     return await httpService.get(`user/${userId}`)
-}
-async function loadUsers() {
-    //DONE
-    try {
-        const users = await httpService.get('user')
-        return users;
-    } catch (err) {
-        console.log('userService: Coulnd\'t get users');
-        throw err;
-    }
 }
 
 async function login(userCred) {
@@ -52,6 +41,7 @@ async function signup(userCred) {
 
 async function logout() {
     await httpService.post('auth/logout');
+    document.cookie = "userId=;expires=Thu, 01 Jan 1970 00:00:00 UTC;"
     sessionStorage.clear();
 }
 

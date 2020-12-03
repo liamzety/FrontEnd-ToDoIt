@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { UserLog } from '../cmps/UserLog'
-import { login } from '../store/actions/userActions';
+import { login, loadUser } from '../store/actions/userActions';
 import loader from '../assets/img/loader.gif';
 import { ImWarning } from 'react-icons/im';
 
@@ -12,7 +12,10 @@ export function UserLogin({ history }) {
   const { msg } = useSelector(state => state.msgReducer)
 
   useEffect(() => {
-    if (sessionStorage.user) history.push("/notes")
+    if (_getCookie('userId')) {
+      dispatch(loadUser(_getCookie('userId')))
+      history.push("/notes")
+    }
     window.addEventListener("keydown", onWindowKey);
     return () => window.removeEventListener("keydown", onWindowKey);
   }, [])
@@ -36,6 +39,22 @@ export function UserLogin({ history }) {
       setIsLoadingModal(false)
       console.log('Err:', error)
     }
+  }
+
+  function _getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
   }
 
   return (
