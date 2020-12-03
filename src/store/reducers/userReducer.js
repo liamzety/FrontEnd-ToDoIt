@@ -9,7 +9,10 @@ export function userReducer(state = initialState, action) {
     switch (action.type) {
         case 'LOG_USER':
             sessionStorage.setItem('user', JSON.stringify(action.user))
-            document.cookie = `userId=${action.user._id}`
+            //1 Month cookie
+            const now = new Date();
+            now.setMonth(now.getMonth() + 1);
+            document.cookie = `userId=${action.user._id}; expires=${now.toUTCString()}`
 
             return {
                 ...state,

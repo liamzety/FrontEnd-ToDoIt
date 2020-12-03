@@ -13,8 +13,8 @@ export function UserLogin({ history }) {
 
   useEffect(() => {
     if (_getCookie('userId')) {
-      dispatch(loadUser(_getCookie('userId')))
-      history.push("/notes")
+      setIsLoadingModal(true)
+      handleUserReturn()
     }
     window.addEventListener("keydown", onWindowKey);
     return () => window.removeEventListener("keydown", onWindowKey);
@@ -28,6 +28,10 @@ export function UserLogin({ history }) {
     }
   }
 
+  async function handleUserReturn() {
+    await dispatch(loadUser(_getCookie('userId')))
+    history.push("/notes")
+  }
 
   async function onLogin(userToLog) {
     setIsLoadingModal(true)

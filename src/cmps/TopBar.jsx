@@ -81,7 +81,6 @@ export function TopBar(props) {
                         className="title"
                         html={currNote.title}
                         onChange={(ev) => {
-                            console.log(ev)
                             onNoteChange('title', ev.target.value)
                         }}
                         tagName='h2'

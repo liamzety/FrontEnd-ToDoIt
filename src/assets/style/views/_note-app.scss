@@ -33,4 +33,9 @@
     font-size: 4vw;
   }
 
+  &.loading-modal {
+    height: 100vh;
+    background-color: $mainGrey;
+  }
+
 }

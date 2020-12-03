@@ -8,6 +8,8 @@ import { useState } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import * as Editor from 'ckeditor5-custom-build/build/ckeditor';
 import ResizePanel from "react-resize-panel";
+import loader from '../assets/img/loader.gif';
+
 
 // 
 export function NoteApp({ history }) {
@@ -21,12 +23,18 @@ export function NoteApp({ history }) {
 
   //If user is not logged then move to home
   useEffect(() => {
-    if (!loggedUser) history.push("/")
-    else {
-      dispatch(loadUser(loggedUser._id))
-      _setNotes(loggedUser.notes[loggedUser.notes.length - 1])
+    if (_getCookie('userId')) {
+      setTimeout(() => {
+        handleUserReturn()
+      }, 1500);
     }
+    else history.push("/")
   }, [])
+
+  //Setting currNote and DefaultNote when user is logged.
+  useEffect(() => {
+    if (loggedUser) _setNotes(loggedUser.notes[loggedUser.notes.length - 1])
+  }, [loggedUser])
 
   //Detect changes, if changes were made show unsaved icon
   useEffect(() => {
@@ -94,10 +102,31 @@ export function NoteApp({ history }) {
     dispatch(updatePrefs({ isSidebar: !loggedUser.prefs.isSidebar }, loggedUser))
   }
 
+  async function handleUserReturn() {
+    await dispatch(loadUser(_getCookie('userId')))
+  }
 
+  function _getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
 
   if (!loggedUser) {
-    return <h1>Loading...</h1>
+    return <div className="note-app loading-modal flex align-center justify-center fixed">
+      <img src={loader} alt="" />
+    </div>
+
   }
 
   return (
