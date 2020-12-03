@@ -27,7 +27,7 @@
 
   .no-notes {
     padding: 30px;
-    height: 85vh;
+    height: calc(100vh - 100px);
     background-color: $mainGrey;
     color: $thirdGrey;
     font-size: 4vw;

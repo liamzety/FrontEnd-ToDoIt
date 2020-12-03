@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { UserLog } from '../cmps/UserLog'
@@ -11,6 +11,39 @@ export function UserLogin({ history }) {
   const [isLoadingModal, setIsLoadingModal] = useState(false)
   const { msg } = useSelector(state => state.msgReducer)
 
+  const onLogin = useCallback(
+    async (userToLog) => {
+      setIsLoadingModal(true)
+      if (!userToLog) return
+
+      try {
+        await dispatch(login(userToLog))
+        history.push("/notes")
+
+      } catch (error) {
+        setIsLoadingModal(false)
+        console.log('Err:', error)
+      }
+    },
+    [dispatch, history])
+
+
+  const onWindowKey = useCallback(
+    (ev) => {
+      if (ev.ctrlKey && (ev.key === '1')) {
+        ev.preventDefault()
+        onLogin({ username: 'liam', password: '1' })
+      }
+    }, [onLogin])
+
+  const handleUserReturn = useCallback(
+    async () => {
+      await dispatch(loadUser(_getCookie('userId')))
+      history.push("/notes")
+    },
+    [dispatch, history],
+  )
+
   useEffect(() => {
     if (_getCookie('userId')) {
       setIsLoadingModal(true)
@@ -18,43 +51,19 @@ export function UserLogin({ history }) {
     }
     window.addEventListener("keydown", onWindowKey);
     return () => window.removeEventListener("keydown", onWindowKey);
-  }, [])
+  }, [handleUserReturn, onWindowKey])
 
-  //My super doper secret shortcut
-  function onWindowKey(ev) {
-    if (ev.ctrlKey && (ev.key === '1')) {
-      ev.preventDefault()
-      onLogin({ username: 'liam', password: '1' })
-    }
-  }
-
-  async function handleUserReturn() {
-    await dispatch(loadUser(_getCookie('userId')))
-    history.push("/notes")
-  }
-
-  async function onLogin(userToLog) {
-    setIsLoadingModal(true)
-    if (!userToLog) return
-    try {
-      await dispatch(login(userToLog))
-      history.push("/notes")
-    } catch (error) {
-      setIsLoadingModal(false)
-      console.log('Err:', error)
-    }
-  }
 
   function _getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) == ' ') {
+    const name = cname + "=";
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) === ' ') {
         c = c.substring(1);
       }
-      if (c.indexOf(name) == 0) {
+      if (c.indexOf(name) === 0) {
         return c.substring(name.length, c.length);
       }
     }

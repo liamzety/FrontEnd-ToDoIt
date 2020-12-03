@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 //React icons
 import { HiDotsHorizontal } from 'react-icons/hi'
 import { RiDeleteBin2Line } from 'react-icons/ri'
@@ -22,7 +22,6 @@ export function TopBar(props) {
         isUnsaved,
         onUpdateNote } = props
 
-    const titleRef = useRef(null)
     const [actionModal, setActionModal] = useState({ isOn: false, isWaitingAnimation: false })
     const styles = StyleSheet.create({
         zoomIn: {

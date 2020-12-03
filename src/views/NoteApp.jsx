@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { addNote, updateNote, removeNote } from "../store/actions/noteActions";
 import { loadUser, logout, updatePrefs } from '../store/actions/userActions';
@@ -21,20 +21,21 @@ export function NoteApp({ history }) {
   const [currNote, setCurrNote] = useState(null)
   const [isUnsaved, setisUnsaved] = useState(false)
 
+
+  const handleUserReturn = useCallback(
+    () => {
+      dispatch(loadUser(_getCookie('userId')))
+    },
+    [dispatch],
+  )
+
   //If user is not logged then move to home
   useEffect(() => {
     if (_getCookie('userId')) {
-      setTimeout(() => {
-        handleUserReturn()
-      }, 1500);
+      handleUserReturn()
     }
     else history.push("/")
-  }, [])
-
-  //Setting currNote and DefaultNote when user is logged.
-  useEffect(() => {
-    if (loggedUser) _setNotes(loggedUser.notes[loggedUser.notes.length - 1])
-  }, [loggedUser])
+  }, [handleUserReturn, history])
 
   //Detect changes, if changes were made show unsaved icon
   useEffect(() => {
@@ -49,11 +50,12 @@ export function NoteApp({ history }) {
     return () => window.removeEventListener("keydown", onWindowKey);
   });
 
+  const loggedUserNotesLength = loggedUser?.notes.length
   //On logged user note length change AKA remove,add - reload and set notes.
   useEffect(() => {
     if (!loggedUser) return
     _setNotes(loggedUser.notes[loggedUser.notes.length - 1] || null)
-  }, [loggedUser && loggedUser.notes.length])
+  }, [loggedUserNotesLength])
 
   //if window key Ctrl+S then save curr note
   function onWindowKey(ev) {
@@ -102,20 +104,18 @@ export function NoteApp({ history }) {
     dispatch(updatePrefs({ isSidebar: !loggedUser.prefs.isSidebar }, loggedUser))
   }
 
-  async function handleUserReturn() {
-    await dispatch(loadUser(_getCookie('userId')))
-  }
+
 
   function _getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) == ' ') {
+    const name = cname + "=";
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) === ' ') {
         c = c.substring(1);
       }
-      if (c.indexOf(name) == 0) {
+      if (c.indexOf(name) === 0) {
         return c.substring(name.length, c.length);
       }
     }
