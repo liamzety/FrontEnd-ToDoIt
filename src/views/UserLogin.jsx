@@ -27,15 +27,6 @@ export function UserLogin({ history }) {
     },
     [dispatch, history])
 
-
-  const onWindowKey = useCallback(
-    (ev) => {
-      if (ev.ctrlKey && (ev.key === '1')) {
-        ev.preventDefault()
-        onLogin({ username: 'liam', password: '1' })
-      }
-    }, [onLogin])
-
   const handleUserReturn = useCallback(
     async () => {
       await dispatch(loadUser(_getCookie('userId')))
@@ -49,9 +40,7 @@ export function UserLogin({ history }) {
       setIsLoadingModal(true)
       handleUserReturn()
     }
-    window.addEventListener("keydown", onWindowKey);
-    return () => window.removeEventListener("keydown", onWindowKey);
-  }, [handleUserReturn, onWindowKey])
+  }, [handleUserReturn])
 
 
   function _getCookie(cname) {
