@@ -56,22 +56,17 @@
         }
     }
 
-    button {
-        width: 50%;
-        max-width: 300px;
-        font-weight: 700;
-        background-color: $mainGreen;
-        border: none;
-        border-radius: 5px;
-        padding: 8px;
-        font-size: 1.2rem;
-        color: $mainGrey;
-        margin-bottom: 15px;
 
-        &:hover {
-            background-color: $mainWhite;
-            color: $secGrey;
+    .btn-container {
+        margin-bottom: 25px;
+
+        &>* {
+            margin-bottom: 10px;
+
         }
-
     }
+
+
+
+
 }

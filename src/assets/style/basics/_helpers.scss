@@ -1,3 +1,40 @@
+.btn {
+  max-width: 300px;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border: 2px solid $mainGreen;
+
+  &:hover {
+
+    &.btn-prime,
+    &.btn-sec {
+      background-color: $mainWhite;
+      border-color: $mainWhite;
+      color: $mainGrey;
+    }
+  }
+
+  &.btn-prime {
+    background-color: $mainGreen;
+    color: $mainGrey;
+  }
+
+  &.btn-sec {
+    background-color: transparent;
+    color: $mainGreen;
+  }
+
+  &.btn-disabled {
+    background-color: $disabled;
+    border-color: $disabled;
+    cursor: no-drop;
+  }
+}
+
+
+
 .flex {
   display: flex;
 }

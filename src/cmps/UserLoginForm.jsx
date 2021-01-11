@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import logoMain from '../assets/img/logo-main-light.png'
 
-export function UserLog({ onLogin, isLoadingModal }) {
+export function UserLoginForm({ onLogin, isLoadingModal }) {
     const [userDetails, setUserDetails] = useState(null)
 
     function onLogUserInp(ev) {
@@ -25,15 +25,23 @@ export function UserLog({ onLogin, isLoadingModal }) {
                 <input onChange={onLogUserInp} name="username" type="text" placeholder="username" required />
                 <input onChange={onLogUserInp} name="password" type="password" placeholder="password" required />
                 <div className="flex align-end col">
-                    <button style={{
-                        cursor: isLoadingModal ? 'no-drop' : 'pointer',
-                        backgroundColor: isLoadingModal ? '#393e46' : ''
-                    }}
-                    >{isLoadingModal ? 'Loading...' : 'Login'}</button>
+                    <div className="btn-container flex  col align-center">
+                        <button
+                            className={`btn btn-prime w100 ${isLoadingModal ? 'btn-disabled' : ''}`}
+                        >{isLoadingModal ? 'Loading...' : 'Login'}</button>
+                        <span>Or</span>
+                        <button
+                            className="btn btn-sec w100"
+                            type="button"
+                            onClick={() => {
+                                onLogin({ username: 'guest', password: 'guest' })
+                            }}>Try as a Guest</button>
+                    </div>
                     <div className="flex align-end col">
                         <p>Dont have an account?</p>
                         <NavLink to='/sign'>Sign in here </NavLink>
                     </div>
+
                 </div>
             </div>
         </form>
