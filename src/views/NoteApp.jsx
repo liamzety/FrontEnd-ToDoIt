@@ -71,7 +71,7 @@ export function NoteApp({ history }) {
   }
   function onRemoveNote() {
     dispatch(removeNote(currNote._id, loggedUser))
-    _setNotes(loggedUser.notes[loggedUser.notes.length - 1] || null)
+    _setNotes(loggedUser.notes[0] || null)
   }
   function onUpdateNote() {
     dispatch(updateNote(currNote, loggedUser))

@@ -15,6 +15,7 @@ export function UserLoginForm({ onLogin, isLoadingModal }) {
         <form className='log-sign-form flex col wrap justify-center'
             onSubmit={ev => {
                 ev.preventDefault()
+                if (isLoadingModal) return
                 onLogin(userDetails)
 
             }}>
@@ -28,12 +29,13 @@ export function UserLoginForm({ onLogin, isLoadingModal }) {
                     <div className="btn-container flex  col align-center">
                         <button
                             className={`btn btn-prime w100 ${isLoadingModal ? 'btn-disabled' : ''}`}
-                        >{isLoadingModal ? 'Loading...' : 'Login'}</button>
+                        >Login</button>
                         <span>Or</span>
                         <button
-                            className="btn btn-sec w100"
+                            className={`btn btn-sec w100 ${isLoadingModal ? 'btn-disabled' : ''}`}
                             type="button"
                             onClick={() => {
+                                if (isLoadingModal) return
                                 onLogin({ username: 'guest', password: 'guest' })
                             }}>Try as a Guest</button>
                     </div>

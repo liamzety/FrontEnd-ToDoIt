@@ -8,7 +8,7 @@ export function NotesList({ notes, onNoteSelect, currNote }) {
     return (
 
         <ul className="notes-list">
-            {notes.map(note => (
+            {notes.map((note) => (
                 <li
                     style={{
                         color: currNote && currNote._id === note._id ? '#f1f1f2eb' : '#f1f1f252',

@@ -29,7 +29,13 @@
   &.btn-disabled {
     background-color: $disabled;
     border-color: $disabled;
+    color: $mainGrey;
     cursor: no-drop;
+
+    &:hover {
+      background-color: $disabled;
+      border-color: $disabled;
+    }
   }
 }
 
