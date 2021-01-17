@@ -54,7 +54,7 @@ export function NoteApp({ history }) {
   //On logged user note length change AKA remove,add - reload and set notes.
   useEffect(() => {
     if (!loggedUser) return
-    _setNotes(loggedUser.notes[loggedUser.notes.length - 1] || null)
+    _setNotes(loggedUser.notes[0] || null)
   }, [loggedUserNotesLength])
 
   //if window key Ctrl+S then save curr note
@@ -71,7 +71,6 @@ export function NoteApp({ history }) {
   }
   function onRemoveNote() {
     dispatch(removeNote(currNote._id, loggedUser))
-    _setNotes(loggedUser.notes[0] || null)
   }
   function onUpdateNote() {
     dispatch(updateNote(currNote, loggedUser))
