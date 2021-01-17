@@ -11,6 +11,7 @@ import { css, StyleSheet } from 'aphrodite';
 import ContentEditable from 'react-contenteditable'
 import logo_sm from '../assets/img/logo_sm.png'
 import logo_sm_on from '../assets/img/logo_sm_on.png'
+import { mobileService } from '../services/mobileService'
 
 export function TopBar(props) {
     const { onLogOut,
@@ -23,6 +24,7 @@ export function TopBar(props) {
         onUpdateNote } = props
 
     const [actionModal, setActionModal] = useState({ isOn: false, isWaitingAnimation: false })
+
     const styles = StyleSheet.create({
         zoomIn: {
             animationName: zoomIn,
@@ -68,7 +70,7 @@ export function TopBar(props) {
     return (
         <div className="topbar flex align-center space-between">
             {!isSidebar &&
-                <div onClick={onUpdateNote} data-title='Save Note' className="logo-container relative">
+                <div onClick={onUpdateNote} data-title={mobileService.handleTooltip('Save Note')} className="logo-container relative">
                     <img style={{ opacity: isUnsaved ? '0' : '1' }} src={logo_sm} alt="logo" />
                     <img className="absolute" style={{ opacity: isUnsaved ? '1' : '0' }} src={logo_sm_on} alt="logo_unsaved" />
                 </div>
