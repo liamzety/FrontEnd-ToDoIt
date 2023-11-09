@@ -28,7 +28,6 @@
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "mongodb": "^3.6.1",
-    "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-animations": "^1.0.0",
     "react-contenteditable": "^3.3.5",
@@ -40,6 +39,8 @@
     "react-scripts": "3.4.3",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
+    "sass": "^1.69.5",
+    "sass-loader": "^13.3.2",
     "socket.io-client": "^2.3.0",
     "wait-on": "^5.2.0"
   },
