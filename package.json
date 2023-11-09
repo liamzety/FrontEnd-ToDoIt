@@ -44,13 +44,11 @@
   },
   "scripts": {
     "react-start": "react-scripts start",
-    "react-build": "react-scripts --max_old_space_size=4096 build",
     "react-test": "react-scripts test --env=jsdom",
     "react-eject": "react-scripts eject",
     "electron-build": "electron-builder",
     "release": "npm run react-build && electron-builder --publish=always",
-    "build": "npm run react-build",
-    "build-netlify": "react-scripts build",
+    "build": "react-scripts build",
     "start": "npm run react-start"
   },
   "eslintConfig": {
