@@ -1,9 +1,10 @@
 import Axios from 'axios';
 
 const BASE_URL = process.env.NODE_ENV === 'production'
-    ? 'https://todoit-api.herokuapp.com/api/'
+// TODO: change this
+    ? 'https://scribepad-api.onrender.com/api/'
     : '//localhost:3030/api/'
-// const BASE_URL = 'https://todoit-api.herokuapp.com/api/'
+// const BASE_URL = 'https://scribepad-api.onrender.com/api/'
 var axios = Axios.create({
     withCredentials: true
 });
